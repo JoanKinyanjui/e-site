@@ -11,7 +11,8 @@ function SignUp() {
     const [password,setPassword] = useState('');
     const [confirmPassword,setConfirmPassword] = useState('');
     const [error,setError]= useState('');
-    const onHandleSubmit =async(e)=>{
+
+const onHandleSubmit =async(e)=>{
     e.preventDefault('');
     setUsername('');
     setPassword('');

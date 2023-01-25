@@ -1,0 +1,186 @@
+.TopNav{
+    background-color:#A8741A ;
+    width: 100vw;
+    height: max-content;
+}
+.TopNav-container{
+    width: 80%;
+    /* background-color: aqua; */
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.TopNav-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 14px !important;
+}
+.dropdown{
+    border: none;
+    background-color: transparent;
+    border-radius: none;
+}
+
+.dropdown-toggle{
+    border: none;
+    font-size: 14px;
+    border-radius: none !important;
+}
+.dropdown-menu{
+    font-size: 14px;
+    border-bottom: 2px solid #A8741A;
+    border-radius: none !important;
+    font-family: System;
+}
+@media only screen and (max-width: 920px){
+.TopNav-container{
+    width: 90%;
+}
+}
+@media only screen and (max-width: 768px){
+    .TopNav-container{
+        width: 90%;
+        justify-content: center;
+    }
+    .Forvisible{
+        display: none;
+    }
+    }
+    @media only screen and (max-width: 420px){
+       .TopNav-buttons{
+        font-size: xx-small !important;
+       }
+       .dropdown-toggle{
+        padding: 2px 4px !important;
+       }
+       .dropdown{
+        font-size: xx-small;
+       }
+      .TopNav-container{
+        width: 100%;
+      } 
+        }
+
+
+        /* MiddleNav */
+
+.MiddleNav{
+    width: 100vw;
+    height: 9vh;
+    /* background-color: blanchedalmond; */
+   
+}        
+.MiddleNav-div{
+    width: 80%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+}
+.MiddleNav-one{
+    flex: 80%;
+ 
+}
+.MiddleNav-two{
+    flex: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+.searchIcon{
+    font-size: 40px !important;
+    margin: 5px;
+}
+.LocalMallOut{
+    font-size: 40px !important;
+    margin: 5px;
+}
+.MenuOutlined{
+font-size: 40px !important;
+margin: 5px;
+display: none !important;
+}
+.MiddleNav-one img{
+    width: 25%;
+    height: 80%;
+}
+@media only screen and (max-width: 786px){
+.MiddleNav{
+        height: 8vh;
+    }
+ .MiddleNav-div{
+        width: 90%;
+    }
+.MiddleNav-one{
+        flex: 85%;
+    }
+.MiddleNav-two{
+        flex: 15%;
+    }
+.searchIcon{
+        font-size: 30px !important;
+        margin: 5px;
+    }
+.LocalMallOut{
+        font-size: 30px !important;
+        margin: 5px;
+    }
+.MenuOutlined{
+    font-size: 30px !important;
+    margin: 5px;
+    display: flex !important;
+    }
+.MiddleNav-one img{
+        width: 40%;
+        height: 60%;
+    }
+}
+@media only screen and (max-width: 420px){
+    .MiddleNav-div{
+        width: 100%;
+    }
+    .MiddleNav-one{
+        flex:80%;
+    }
+.MiddleNav-two{
+        flex: 20%;
+    }
+    .MiddleNav-one img{
+        width: 60%;
+        height: 50%;
+    }
+}
+
+
+
+/* Menu NAV */
+.MenuNav{
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    border-top: 1px solid rgb(218, 215, 215) ;
+    margin-top: 5px;
+}
+.MenuNav-div{
+    width: 50%;
+    margin: auto;
+}
+.MenuItem-list{
+    display: flex;
+    list-style-type: none;
+}
+.MenuItems{
+    margin: auto;
+    font-family: System;
+    text-transform: uppercase;
+    font-size: 14px;
+    
+}
+@media only screen and (max-width: 920px){
+    .MenuNav-div{
+        width: 70%;
+    }
+}
+@media only screen and (max-width: 920px){
+    .MenuNav{
+        display: none;
+    }
+}

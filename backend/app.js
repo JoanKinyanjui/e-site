@@ -8,6 +8,10 @@ const User = require ('./model/user');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const { response } = require('express');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const auth = require("./auth");
 
 // middleware
 app.use(cors({origin: true, credentials: true}));
@@ -48,6 +52,16 @@ app.post('/signup', async (req,res)=>{
   const {username,email,password}= req.body;
   try{
       const user = await User.create({username,email,password});
+      //create Token ...
+      const token = jwt.sign(
+       {user_id: user.id,email: user.email},
+       process.env.TOKEN_KEY,
+       {
+        expiresIn:"2h"
+       }
+      )
+      //save user token
+      user.token= token;
       //status 201 == success
      return  res.status(201).json({user})
   }
@@ -58,3 +72,40 @@ app.post('/signup', async (req,res)=>{
     
   }
 })
+
+//Login ...
+
+app.post('/login',async(req,res)=>{
+ try{
+  const {email,password} = req.body;
+  const user = await User.findOne({email});
+  if(user && (await bcrypt.compare(password,user.password))){
+    //create a token ...
+    const token = jwt.sign(
+      {user_id: user.id,email: user.email},
+      process.env.TOKEN_KEY,
+      {
+        expiresIn:"2h"
+      }
+    )
+    //save token ...
+    user.token = token
+    console.log(user)
+    //return status on successfully logging in 
+    return res.status(200).json({user})
+  }else if(!user){
+    const error={message:"User does not exist !!!"}
+    console.log(error)
+    return res.status(400).json({error})
+  }else{
+    const error={message:"Incorrect Password !!!"}
+    console.log(error)
+    return res.status(400).json({error})
+  }
+ }catch(err){
+  console.log(err)
+  return res.status(400).json({err})
+  
+ }
+})
+
